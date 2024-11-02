@@ -1,4 +1,4 @@
-"""
+
 class Student:
     print("Hi")
 
@@ -30,7 +30,7 @@ class Student:
 
 student1 = Student()
 student1.printer()
-"""
+
 
 class Machine:
 
