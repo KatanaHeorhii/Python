@@ -42,9 +42,9 @@ class UserInterface:
             print("2. Показать сайты")
             print("3. Искать на сайтах")
             print("4. Выход")
-            choice = input("Ваш выбор: ").strip()
+            choice = input("Ваш выбор: ")
             if choice == "1":
-                url = input("Введите URL сайта: ").strip()
+                url = input("Введите URL сайта: ")
                 self.site_manager.add_site(url)
             elif choice == "2":
                 sites = self.site_manager.sites_list()
@@ -55,7 +55,7 @@ class UserInterface:
                 else:
                     print("Список с сайтами пуст.")
             elif choice == "3":
-                request = input("Ваш запрос для поиска: ").strip()
+                request = input("Ваш запрос для поиска: ")
                 sites = self.site_manager.sites_list()
                 if sites:
                     results = self.parser.search(request)
@@ -83,3 +83,7 @@ class SearchApp:
 #Запуск программы
 start = SearchApp()
 start.run()
+
+#сайты
+#https://www.marvel.com/movies
+#https://marvel.fandom.com/ru/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D0%BE%D0%B2_Marvel
