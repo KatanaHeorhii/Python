@@ -39,20 +39,22 @@ my_inventory.remove_item("wood")
 my_inventory.show_inventory()
 
 
+"""
 
-pip import BeautifulSoup, Requests
+import requests
+from bs4 import BeautifulSoup
 class MovieParser:
   def __init__(self, url):
     self.url = url
   def fetch_page(self):
     response = requests.get(self.url)
-    if response.status.code == 200:
+    if response.status_code == 200:
       return response.text
     else:
       raise Exception (f"Не удалось загрузить страницу, код ошибки: {response.status.code}")
   def parse_movies(self, html):
     soup = BeautifulSoup(html, 'html.parser')
-    movie_elements = soup.find_all('p', class_ = 'long-title')
+    movie_elements = soup.find_all('h3', class_='title')
     movies = [movie.text.strip() for movie in movie_elements]
     return movies
 url = "https://movies.disney.com/"
@@ -61,4 +63,4 @@ html_content = parser.fetch_page()
 movies = parser.parse_movies(html_content)
 print("Список мультфильмов:")
 for movie in movies:
-  print(movie)"""
+  print(movie)
