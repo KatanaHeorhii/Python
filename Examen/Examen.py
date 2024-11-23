@@ -16,7 +16,7 @@ class SiteManager:
 class SiteParser:
     def __init__(self, sites):
         self.sites = sites
-    def search(self, query):
+    def search(self, request):
         results = {}
         for site in self.sites:
             try:
@@ -24,7 +24,7 @@ class SiteParser:
                 response.raise_for_status()
                 soup = BeautifulSoup(response.text, 'html.parser')
                 text = soup.get_text().lower()
-                count = text.count(query.lower())
+                count = text.count(request.lower())
                 if count > 0:
                     results[site] = count
             except Exception as e:
